@@ -2,6 +2,7 @@
   "name": "website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rcookie777.github.io/",
   "dependencies": {
     "@tensorflow/tfjs-node": "^4.21.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -15,7 +16,6 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://rcookie777.github.io/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
