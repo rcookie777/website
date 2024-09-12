@@ -64,32 +64,29 @@ function FaceToEmoji() {
           )
           .withFaceExpressions();
 
-        // Resize detections to match display size
+        if (detections){
         const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
-        // Clear the canvas
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         if (resizedDetections) {
           const { expressions, detection } = resizedDetections;
 
-          // Find the most dominant expression
           const maxExpression = Object.keys(expressions).reduce((a, b) =>
             expressions[a] > expressions[b] ? a : b
           );
 
           const emoji = expressionToEmoji[maxExpression] || '😐';
 
-          // Get the bounding box of the detected face
           const { x, y, width, height } = detection.box;
 
-          // Display the emoji on the face
           ctx.font = `${height}px Arial`;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillText(emoji, x + width / 2, y + height / 2);
         }
+      }
       }
     }, 100);
   };
